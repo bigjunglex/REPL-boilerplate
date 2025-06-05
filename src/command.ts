@@ -1,11 +1,6 @@
 import { commandExit } from "./command_exit.js"
 import { commandHelp } from "./command_help.js"
-
-type CLIcommand = {
-    name:string;
-    description: string;
-    callback: (commands: Record<string, CLIcommand> ) => void;
-}
+import type { CLIcommand } from "./state.js"
 
 function getCommands():Record<string, CLIcommand> {
     return {
@@ -24,7 +19,7 @@ function getCommands():Record<string, CLIcommand> {
 
 
 
-export { CLIcommand, getCommands }
+export { getCommands }
 
 
 

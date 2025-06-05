@@ -1,6 +1,8 @@
-import type { CLIcommand } from "./command";
+import type { State } from "./state";
 
-export function commandHelp(commands: Record<string, CLIcommand>) {
+export function commandHelp(state:State) {
+    const commands = state.commands
+
     console.log('Welcome to the Pokedex!')
     console.log('Usage:\n\n')
     for (const key of Object.keys(commands)) {

@@ -1,15 +1,12 @@
-import { createInterface } from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process"
-import { getCommands } from "./command.js";
+import type { State } from "./state";
 
 function cleanInput(input:string):string[] {
     return input.toLowerCase().split(' ').filter(i => i.length > 0)
 }
 
-function startREPL():void {
-    const promt = '🗿:'
-    const rl = createInterface({ input, output, prompt: promt });
-    const commands = getCommands();
+function startREPL(state:State):void {
+    const rl = state.readline
+    const commands = state.commands
 
     rl.prompt()
     rl.on('line', (str) => {
@@ -19,8 +16,8 @@ function startREPL():void {
         if(cmd) {
             if (commands[cmd]) {
                 try {
-                    commands[cmd].callback(commands)
-                } catch (e){
+                    commands[cmd].callback(state)
+                } catch (e){ 
                     console.log(e)
                 }
             } else {
