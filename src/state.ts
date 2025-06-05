@@ -1,13 +1,12 @@
 import { createInterface, type Interface } from "readline"
 import { stdin as input, stdout as output } from "node:process"
 import { getCommands } from "./command.js";
-import { PokeAPI } from "./pokeapi.js";
-import { aP } from "vitest/dist/chunks/reporters.d.C-cu31ET.js";
+import { PokeAPI, Pokemon } from "./pokeapi.js";
 
 type CLIcommand = {
     name:string;
     description: string;
-    callback: (state: State ) => Promise<void>;
+    callback: (state: State, ...args: string[]) => Promise<void>;
 }
 
 type State = {
@@ -16,12 +15,14 @@ type State = {
     api: PokeAPI;
     nextLocationsURL: string | null;
     prevLocationsURL: string | null;
+    pokedex: Record<string, Pokemon>;
 }
 
 function initState():State {
     const rl = createInterface({input, output, prompt: '🗿:'})
     const commands = getCommands()
     const api = new PokeAPI()
+    const pokedex = {};
 
     return {
         readline: rl,
@@ -29,6 +30,7 @@ function initState():State {
         api: api,
         nextLocationsURL: '',
         prevLocationsURL: '',
+        pokedex: pokedex,
     }
 }
 

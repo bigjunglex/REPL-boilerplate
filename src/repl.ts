@@ -16,7 +16,7 @@ async function startREPL(state:State):Promise<void> {
         if(cmd) {
             if (commands[cmd]) {
                 try {
-                    commands[cmd].callback(state)
+                    commands[cmd].callback(state, ...washed.slice(1))
                 } catch (e){ 
                     console.log(e)
                 }

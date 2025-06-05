@@ -36,7 +36,6 @@ class Cache {
         if (!this.#cache.has(key)) {
             this.#cache.set(key, val as CacheEntry<T>)
         }
-        console.log(this.#cache.size)
     }
 
     get<T>(key:string) {
