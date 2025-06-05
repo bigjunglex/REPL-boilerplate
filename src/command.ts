@@ -5,6 +5,7 @@ import { commandExplore } from "./command_explore.js"
 import { commandCatch } from "./command_catch.js"
 import { commandInspect } from "./command_inspect.js"
 import type { CLIcommand } from "./state.js"
+import { commandPokedex } from "./command_pokedex.js"
 
 
 function getCommands():Record<string, CLIcommand> {
@@ -43,10 +44,14 @@ function getCommands():Record<string, CLIcommand> {
             name: 'inscpect',
             description: 'Inspect caught pokemons',
             callback: commandInspect
+        },
+        pokedex: {
+            name: 'pokedex',
+            description: 'Display list of caught pokemons',
+            callback: commandPokedex   
         }
     }
 }
-
 
 
 export { getCommands }
