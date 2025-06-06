@@ -1,4 +1,4 @@
-import type { State } from "./state";
+import type { State } from "../state";
 
 export async function commandHelp(state:State):Promise<void> {
     const commands = state.commands

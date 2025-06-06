@@ -1,4 +1,4 @@
-import { State } from "./state";
+import { State } from "../state";
 
 const randomize = (baseExp: number) => {
     const base = 0.5;

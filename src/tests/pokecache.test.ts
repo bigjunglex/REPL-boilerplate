@@ -1,5 +1,5 @@
 import { create } from "domain";
-import { Cache, type CacheEntry } from "./pokecache.js";
+import { Cache, type CacheEntry } from "../api/pokecache.js";
 import { describe, expect, test } from "vitest"
 
 

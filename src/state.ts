@@ -1,7 +1,7 @@
 import { createInterface, type Interface } from "readline"
 import { stdin as input, stdout as output } from "node:process"
-import { getCommands } from "./command.js";
-import { PokeAPI, Pokemon } from "./pokeapi.js";
+import { getCommands } from "./commands/command.js";
+import { PokeAPI, Pokemon } from "./api/pokeapi.js";
 
 type CLIcommand = {
     name:string;

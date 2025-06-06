@@ -1,4 +1,4 @@
-import { State } from "./state";
+import { State } from "../state";
 
 export async function commandMap(state:State):Promise<void> {
     const { nextLocationsURL, readline } = state;
