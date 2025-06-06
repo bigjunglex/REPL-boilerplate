@@ -19,18 +19,13 @@ type State = {
 }
 
 function initState():State {
-    const rl = createInterface({input, output, prompt: '🗿:'})
-    const commands = getCommands()
-    const api = new PokeAPI()
-    const pokedex = {};
-
     return {
-        readline: rl,
-        commands: commands,
-        api: api,
+        readline: createInterface({input, output, prompt: '🗿:'}),
+        commands: getCommands(),
+        api: new PokeAPI(),
         nextLocationsURL: '',
         prevLocationsURL: '',
-        pokedex: pokedex,
+        pokedex: {},
     }
 }
 
